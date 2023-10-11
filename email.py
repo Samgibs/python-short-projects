@@ -3,20 +3,19 @@ import smtplib
 import ssl
 
 emailsender="captainsamuelqs@gmail.com"
-emailreciever="samuelgibson722@gmail.com"
 emailpassword="yoay gxky evde eyym"
+emailreceiver="mukabi339@gmail.com"
 
-subject="learning python"
-body="""created an email sender using python"""
+subject="revising"
+body="""The function then returns a tuple with the sum of corresponding elements from"""
 
 em=EmailMessage()
 em["from"]=emailsender
-em["To"]=emailreciever
+em["To"]=emailreceiver
 em["subject"]=subject
 em.set_content(body)
 
 context=ssl.create_default_context()
-
 with smtplib.SMTP_SSL('smtp.gmail.com', 465,context=context) as smtp:
     smtp.login(emailsender,emailpassword)
-    smtp.sendmail(emailsender,emailreciever,em.as_string())
+    smtp.sendmail(emailsender,emailreceiver,em.as_string())
