@@ -1,13 +1,20 @@
-def emailslicer():
-    print("welcome to email slicer")
-    print("")
+import cmd
 
-    email_input=input("enter your email address: ")
-    (username,domain)=email_input.split("@")
-    (domain,extension)=domain.split(".")
+class MyCmdInterpreter(cmd.Cmd):
+    prompt = '>> '  # Set the command prompt
 
-    print("username:    ",username)
-    print("domain:   ",domain)
-    print("extension:   ",extension)
+    def do_greet(self, arg):
+        """Greet the user. Usage: greet [name]"""
+        if arg:
+            print(f"Hello, {arg}!")
+        else:
+            print("Hello!")
 
-emailslicer()
+    def do_exit(self, arg):
+        """Exit the command interpreter."""
+        print("Exiting...")
+        return True  # This will exit the interpreter
+
+if __name__ == '__main__':
+    my_cmd = MyCmdInterpreter()
+    my_cmd.cmdloop()
